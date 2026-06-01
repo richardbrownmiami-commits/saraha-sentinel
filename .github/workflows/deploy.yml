@@ -1,0 +1,16 @@
+name: Deploy saraha-sentinel
+on:
+  push:
+    branches: [main]
+    paths: ["src/**", "wrangler.toml"]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npx wrangler@3.90.0 deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}

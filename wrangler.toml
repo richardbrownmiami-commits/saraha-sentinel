@@ -1,0 +1,4 @@
+name = "saraha-sentinel"
+main = "src/index.ts"
+compatibility_date = "2026-05-01"
+account_id = "913f3a2576a358054eba9a58a9573949"
