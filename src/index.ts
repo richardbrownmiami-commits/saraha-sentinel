@@ -1,9 +1,11 @@
 const TOOL_RULES = {
-  web_search:  { safe: true,  reason: "Web search is read-only" },
-  web_fetch:   { safe: true,  reason: "URL fetch is read-only" },
-  github_read: { safe: true,  reason: "GitHub read is read-only" },
-  github_write:{ safe: false, reason: "GitHub write can modify files - needs approval" },
-  github_push: { safe: false, reason: "GitHub push can deploy code - needs approval" },
+  web_search:    { safe: true,  reason: "Web search is read-only" },
+  web_fetch:     { safe: true,  reason: "URL fetch is read-only" },
+  github_read:   { safe: true,  reason: "GitHub read is read-only" },
+  github_write:  { safe: false, reason: "GitHub write can modify files - needs approval" },
+  github_push:   { safe: false, reason: "GitHub push can deploy code - needs approval" },
+  deploy_worker: { safe: false, reason: "Deploying workers modifies infrastructure - needs approval" },
+  cf_api:        { safe: false, reason: "Cloudflare API calls can modify infrastructure - needs approval" },
 };
 
 const json = (body, status = 200) => new Response(JSON.stringify(body), {
